@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .overall{
+    
+        display: flex;
+        flex-direction: column;
+        
+        width: 50%;
+        padding: 20px;
+        margin: 100px auto;
+        background-color: antiquewhite;
+        border: 2px bisque solid;
+        border-radius: 20px;
+    }
+
+    .birth-div{
+        margin: 3%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: large;
+
+    }
+    .date-div{
+        margin: 3%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: large;
+ 
+    }
+
+    h1{
+        text-align: center;
+        background-color: brown;
+        padding: 10px;
+        width:50%;
+        color:white;
+        margin: 2px auto;
+        border-radius: 10px;
+    }
+
+
+    button{
+        width: 200px;
+        margin: 3% auto;
+        background-color: brown;
+        color: white;
+        font-size: large;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    p{
+        margin: 3%;
+        font-size: large;
+    }
+    span{
+        color: green;
+    }
+
+    
+
+    </style>
+
+</span>
+
+</head>
+<body>
+    <div class="overall">
+        <h1>Age Calculator</h1>
+        <div class="birth-div">
+            <label for="birth">Date of Birth:</label>
+        <input type="date" name="birth" id="birth">
+
+        </div>
+        <div class="date-div">
+            <label for="dte">Date to calculate age:</label>
+    <input type="date" name="dte" id="dte">
+        </div>
+        
+    
+    <button id="cal">claculate</button>
+
+    <p>Your age is: <span id="result"></span></p>
+
+    </div>
+    
+    <script>
+const button=document.getElementById('cal');
+
+button.addEventListener('click',()=>{
+    const birth=document.getElementById('birth').value;
+    const today=document.getElementById('dte').value;
+    const age=document.getElementById('result');
+
+
+    age.innerText=`${calculateAge(birth,today)}`;
+    
+
+})
+
+const calculateAge= (birthDate, todayDate)=> {
+    birthDate = new Date(birthDate);
+    todayDate = new Date(todayDate);
+
+    var years = (todayDate.getFullYear() - birthDate.getFullYear());
+
+    if (todayDate.getMonth() < birthDate.getMonth() || 
+        todayDate.getMonth() == birthDate.getMonth() && todayDate.getDate() < birthDate.getDate()) {
+        years--;
+    }
+
+    return years;
+}
+    </script>
+</body>
+</html
